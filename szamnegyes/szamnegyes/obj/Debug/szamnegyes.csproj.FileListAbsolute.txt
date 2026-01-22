@@ -1,0 +1,9 @@
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\obj\Debug\szamnegyes.csproj.AssemblyReference.cache
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\obj\Debug\szamnegyes.Properties.Resources.resources
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\obj\Debug\szamnegyes.csproj.GenerateResource.cache
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\obj\Debug\szamnegyes.csproj.CoreCompileInputs.cache
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\bin\Debug\szamnegyes.exe.config
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\bin\Debug\szamnegyes.exe
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\bin\Debug\szamnegyes.pdb
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\obj\Debug\szamnegyes.exe
+C:\Users\vidto\Maganszfera\vasvari\programozas\C#\szamnegyes\szamnegyes\obj\Debug\szamnegyes.pdb
