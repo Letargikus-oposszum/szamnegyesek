@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>3x3 Game</title>
+  <style>
+    table { border-collapse: collapse; margin-bottom: 10px; }
+    td {
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+      text-align: center;
+      font-size: 20px;
+    }
+    button { margin: 3px; }
+  </style>
+</head>
+<body>
+
+<h2>3×3 Board</h2>
+
+<table id="board"></table>
+
+<button onclick="press('A')">A</button>
+<button onclick="press('B')">B</button>
+<button onclick="press('C')">C</button>
+<button onclick="press('D')">D</button>
+<button onclick="reset()">Reset</button>
+
+<br><br>
+
+<button onclick="save()">Save fours</button>
+<button onclick="load()">Load all fours</button>
+
+<pre id="output"></pre>
+
+<script>
+let board = [
+  [0,0,0],
+  [0,0,0],
+  [0,0,0]
+];
+
+function draw() {
+  const table = document.getElementById("board");
+  table.innerHTML = "";
+  for (let r = 0; r < 3; r++) {
+    const row = document.createElement("tr");
+    for (let c = 0; c < 3; c++) {
+      const cell = document.createElement("td");
+      cell.textContent = board[r][c];
+      row.appendChild(cell);
+    }
+    table.appendChild(row);
+  }
+}
+
+function press(x) {
+  if (x === "A") add([[0,0],[0,1],[1,0],[1,1]]);
+  if (x === "B") add([[0,1],[0,2],[1,1],[1,2]]);
+  if (x === "C") add([[1,0],[1,1],[2,0],[2,1]]);
+  if (x === "D") add([[1,1],[1,2],[2,1],[2,2]]);
+  draw();
+}
+
+function add(cells) {
+  cells.forEach(([r,c]) => board[r][c]++);
+}
+
+function reset() {
+  board = [[0,0,0],[0,0,0],[0,0,0]];
+  draw();
+}
+
+function getFours() {
+  return [
+    board[0][0],
+    board[0][2],
+    board[2][0],
+    board[2][2]
+  ];
+}
+
+async function save() {
+  const res = await fetch("http://localhost:3000/fours", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify(getFours())
+  });
+  document.getElementById("output").textContent = await res.text();
+}
+
+async function load() {
+  const res = await fetch("http://localhost:3000/fours");
+  document.getElementById("output").textContent =
+    JSON.stringify(await res.json(), null, 2);
+}
+
+draw();
+</script>
+
+</body>
+</html>
